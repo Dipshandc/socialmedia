@@ -1,0 +1,7 @@
+.signupdiv {
+    background-color: darkgrey;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
