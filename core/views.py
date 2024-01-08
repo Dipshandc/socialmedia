@@ -209,3 +209,8 @@ def search(request):
 
       username_profile_list = list(chain(*username_profile_list))
    return render(request,'search.html',{'user_profile':user_profile,'username_profile_list':username_profile_list})
+
+
+def message(request,pk):
+   return render(request , 'message.html')
+   
