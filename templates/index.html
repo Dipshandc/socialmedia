@@ -211,15 +211,15 @@
                 <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
 
                     <!-- post header-->
-                    <div class="flex justify-between items-center px-4 ">
-                        <div class="flex flex-1 items-center space-x-4">
+                    <div class="flex justify-between items-center p-2 ">
+                        <div class="flex flex-1 items-center space-x-1">
                                 <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">
                                     <img src="{{post.user.profileimg.url}}"
-                                        class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                        class="rounded-full w-8 h-8">
                                 </div>
                             <a href=""><span class="block capitalize font-bold "><a
                                         href="/profile/{{post.user}}"  class="block capitalize font-extrabold " >{{post.user}}</a></span></a>
-                                        <p>{{post.created_at|timesince }}</p>
+                                        <p>{{post.created_at|timesince}}</p>
                         </div>
 
                         <div>

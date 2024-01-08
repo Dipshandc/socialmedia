@@ -35,3 +35,11 @@ class Followercount(models.Model):
 
     def __str__(self):
         return self.user
+    
+class Postlike(models.Model):
+    post = models.ForeignKey(Post , on_delete=models.CASCADE)
+    user = models.ForeignKey(User , on_delete=models.CASCADE)
+    totallikes = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return self.post.user.user.username
