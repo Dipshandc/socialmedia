@@ -210,7 +210,16 @@ def search(request):
       username_profile_list = list(chain(*username_profile_list))
    return render(request,'search.html',{'user_profile':user_profile,'username_profile_list':username_profile_list})
 
-
+@login_required(login_url='signin')
 def message(request,pk):
-   return render(request , 'message.html')
+   user = User.objects.get(username = request.user.username)
+   receiver = User.objects.get(username = pk)
+   if request.method == 'POST':
+      sender = user
+      receiver = receiver
+      message = request.POST['text-msg']
+      new_message= Message.objects.create(sender = sender , receiver = receiver , message = message)
+      new_message.save()
+   return render(request , 'message.html',{'receiver':receiver})
+   
    

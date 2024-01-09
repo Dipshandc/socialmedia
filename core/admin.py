@@ -6,6 +6,9 @@ admin.site.register(Profile)
 admin.site.register(Post)
 admin.site.register(Followercount)
 admin.site.register(Postlike)
+admin.site.register(Message)
+admin.site.register(Conversation)
+
 
 
 

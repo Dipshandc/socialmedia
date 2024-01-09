@@ -43,3 +43,26 @@ class Postlike(models.Model):
 
     def __str__(self) -> str:
         return self.post.user.user.username
+    
+
+class Conversation(models.Model):
+    user1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='conversations_user1')
+    user2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='conversations_user2')
+
+    class Meta:
+        unique_together = ('user1', 'user2',)
+
+    def __str__(self):
+        return f"Conversation between {self.user1.username} and {self.user2.username}"
+
+class Message(models.Model):
+    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE, related_name='messages')
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.sender.username} in {self.conversation}"
+    
+
+
